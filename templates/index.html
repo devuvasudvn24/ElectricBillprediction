@@ -1,0 +1,23 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electricity Price Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Electricity Price Prediction</h1>
+        <form action="/predict" method="post">
+            <label for="consumption">Enter Electricity Consumption:</label>
+            <input type="number" id="consumption" name="consumption" required>
+            <button type="submit">Predict</button>
+        </form>
+        {% if prediction is not none %}
+            <h2>Predicted Electricity Price: {{ prediction }}</h2>
+        {% endif %}
+    </div>
+</body>
+</html>
